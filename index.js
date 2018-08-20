@@ -50,6 +50,12 @@ const server = http
               secondItem: 'ピザ'
             })
           );
+        } else if (req.url === '/logout') {
+          res.write(
+            jade.renderFile('', {
+              path: req.url
+            })
+          );
         }
         res.end();
         break;
@@ -83,5 +89,5 @@ const server = http
   });
 const port = process.env.PORT || 8000;
 server.listen(port, () => {
-  console.info('Listening on ' + port);
+  console.info(`Listening on http://localhost:${port}/enquetes/sushi-pizza`);
 });
